@@ -6,71 +6,71 @@ let questions =[
         "answers":["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"]
     },
     {
-        "question": "What is the correct HTML for adding a background color?",
+        "question": "Who is making the Web standards?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":['<body style="background-color:yellow;">', "<background>yellow</background>", '<body bg="yellow">']
+        "answers":['The World Wide Web Consortium', 'Google', 'Mozilla', 'Microsoft']
     },
     {
         "question": "Choose the correct HTML element or elements to define emphasized or important text:",
         "type":"checkbox",
         "correctAnswers": 2,
-        "answers":["<em>", "<strong>", "<italic>", "<important>"]
+        "answers":["em", "strong", "italic", "important"]
     },
     {
         "question": "What is the correct HTML for creating a hyperlink?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":['<a href="http://www.w3schools.com">W3Schools</a>', "<a>http://www.w3schools.com</a>", '<a name="http://www.w3schools.com">W3Schools.com</a>', '<a url="http://www.w3schools.com">W3Schools.com</a>' ]
+        "answers":["a href='http://www.w3schools.com W3Schools.com /a", 'a http://www.w3schools.com  /a', 'a name="http://www.w3schools.com" W3Schools.com /a', 'a url="http://www.w3schools.com" W3Schools.com /a' ]
     },
     {
         "question": "Which character is used to indicate an end tag?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":["/ ", "*", "^", "<"]
+        "answers":["'/' ", "'*'", "'^'", "'<'"]
     },
     {
         "question": "How can you make a numbered list?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":["<ol>", "<list>", "<dl>", "<ul>"]
+        "answers":["' ol'", "'list'", "'dl'", "'ul'"]
     },
     {
         "question": "How can you make a bulleted list?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":["<ul>","<ol>", "<list>", "<dl>"]
+        "answers":["'ul'","'ol'", "'list'", "'dl'"]
     },
     {
         "question": "What is the correct HTML for making a checkbox?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":['<input type="checkbox">', "<checkbox>", "<check>", '<input type="check">']
+        "answers":["input type='checkbox'", 'checkbox', 'check', "input type='check'"]
     },
 
     {
         "question": "What is the correct HTML for making a drop-down list?",
         "type":"drop-down",
         "correctAnswers": 1,
-        "answers":['<select>', "<list>", '<input type="list">', '<input type="dropdown">']
+        "answers":["'select'", "'list'", "'input type='list''", "'input type='dropdown''"]
     },
     {
         "question": "What is the correct HTML for referring to an external style sheet?",
         "type":"drop-down",
         "correctAnswers": 1,
-        "answers":['<link rel="stylesheet" type="text/css" href="mystyle.css"> ', "<stylesheet>mystyle.css</stylesheet>", '<style src="mystyle.css">']
+        "answers":["link rel='stylesheet' type='text/css' href='mystyle.css'", " stylesheet mystyle.css  /stylesheet", "style src='mystyle.css'"]
     },
     {
         "question": "Which is the correct CSS syntax?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":['body {color: black;}', "body:color=black;", '{body;color:black;}', '{body:color=black;}']
+        "answers":['body {color: black;}', 'body:color=black;', '{body;color:black;}', '"body:color=black;}']
     },
     {
         "question": "Which CSS property is used to change the text color of an element?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":['color', "fgcolor", 'text-color']
+        "answers":['color', 'fgcolor', 'text-color']
     },
     {
         "question": "Which CSS property controls the text size?",
@@ -82,16 +82,16 @@ let questions =[
         "question": "How do you display hyperlinks without an underline?",
         "type":"drop-down",
         "correctAnswers": 1,
-        "answers":['a {text-decoration:none;}', "a {decoration:no-underline;}", 'a {text-decoration:no-underline;}', 'a {underline:none;}']
+        "answers":['a {text-decoration:none;}', 'a {decoration:no-underline;}', 'a {text-decoration:no-underline;}', 'a {underline:none;}']
     },
     {
         "question": "What is the correct JavaScript syntax to change the content of the HTML element below?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":['document.getElementById("demo").innerHTML = "Hello World!"', 'document.getElementByName("p").innerHTML = "Hello World!"', 'document.getElement("p").innerHTML = "Hello World!"; ', '#demo.innerHTML = "Hello World!";']
+        "answers":["document.getElementById('demo').innerHTML = 'Hello World!'", "document.getElementByName('p').innerHTML = 'Hello World!'", "document.getElement('p').innerHTML = 'Hello World!'; ", "#demo.innerHTML = 'Hello World!';"]
     },
     {
-        "question": "The external JavaScript file must contain the <script> tag:",
+        "question": "The external JavaScript file must contain the &ltscript&gt tag:",
         "type":"drop-down",
         "correctAnswers": 1,
         "answers":['False', 'True']
