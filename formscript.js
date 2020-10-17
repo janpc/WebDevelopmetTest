@@ -1,31 +1,56 @@
 var ans = "";
 var multipleAns = [];
-var actualQ=0;
+var actualQ = 0;
+var correctAnswers = 0;
+var userAnswers = [];
+var nick = sessionStorage.name;
 window.onload = function () {
+  correctAnswers = 0;
+  actualQ = 0;
   if (typeof Storage !== "undefined") {
-    document.getElementById("demo").innerHTML = "Hola " + sessionStorage.name;
+    document.getElementById("demo").innerHTML = "Hola " + nick;
   } else {
     document.getElementById("demo").innerHTML =
       "Sorry, your browser does not support web storage...";
   }
   changeQuestion();
 };
-function changeQuestion(){
-    if(questions[actualQ].type=="radio"){
-        radioQuestion(actualQ);
+
+function changeQuestion() {
+  if (actualQ < 20) {
+    if (questions[actualQ].type == "radio") {
+      radioQuestion(actualQ);
+    } else if (questions[actualQ].type == "checkbox") {
+      checkboxQuestion(actualQ);
+    } else {
+      dropDownQuestion(actualQ);
     }
-    else if((questions[actualQ].type=="checkbox")){
-        checkboxQuestion(actualQ);
+  } else {
+    let ranking = [];
+    if (!sessionStorage.ranking) {
+      ranking = [
+        {
+          nick: nick,
+          correctAnswers: correctAnswers,
+          answers: userAnswers
+        },
+      ];
+    } else {
+      ranking = JSON.parse(sessionStorage.getItem("ranking"));
+      ranking.push({
+        nick: nick,
+        correctAnswers: correctAnswers,
+        answers: userAnswers
+      });
     }
-    else{
-        dropDownQuestion(actualQ);
-    }
+    window.sessionStorage.setItem("ranking", JSON.stringify(ranking));
+    window.location = "ranking.html";
+  }
 }
 
 //--------------print diferent tyes----------------------
 function radioQuestion(q) {
-    let print =
-    "<h3>" + questions[q].question + "</h3><form>";
+  let print = "<h3>" + questions[q].question + "</h3><form>";
   let randomAnswers = questions[q].answers.slice();
   randomAnswers = randomArray(randomAnswers);
   randomAnswers.forEach((answer) => {
@@ -41,12 +66,11 @@ function radioQuestion(q) {
     q +
     ')" value="Next" /> </form>';
 
-    document.getElementById("question").innerHTML=print;
+  document.getElementById("question").innerHTML = print;
 }
 
 function checkboxQuestion(q) {
-    let print =
-    "<h3>" + questions[q].question + "</h3><form>";
+  let print = "<h3>" + questions[q].question + "</h3><form>";
   let randomAnswers = questions[q].answers.slice();
   randomAnswers = randomArray(randomAnswers);
   randomAnswers.forEach((answer) => {
@@ -57,34 +81,29 @@ function checkboxQuestion(q) {
       answer +
       "<br />";
   });
-  print+=
+  print +=
     '<input type="button" onclick="checkAnswer(' +
     q +
     ')" value="Next" /> </form>';
 
-    document.getElementById("question").innerHTML=print;
+  document.getElementById("question").innerHTML = print;
 }
 
 function dropDownQuestion(q) {
-    let print=
+  let print =
     "<h3>" + questions[q].question + "</h3><form><select id='mySelect'>";
   let randomAnswers = questions[q].answers.slice();
   randomAnswers = randomArray(randomAnswers);
 
   randomAnswers.forEach((answer) => {
-    print +=
-      '<option value="' +
-      answer +
-      '">' +
-      answer +
-      "</option>";
+    print += '<option value="' + answer + '">' + answer + "</option>";
   });
-    print+=
+  print +=
     '<input type="button" onclick="checkAnswer(' +
     q +
     ')" value="Next" /> </select> </form>';
 
-   document.getElementById("question").innerHTML=print;
+  document.getElementById("question").innerHTML = print;
 }
 
 //--------------check answer-----------------------------
@@ -110,15 +129,19 @@ function changeMultipleAnswers(answer) {
 }
 
 function checkAnswer(q) {
-    if(questions[q].type=="drop-down"){
-        changeAns(document.getElementById("mySelect").value);
-    }
+  if (actualQ == 0) {
+    userAnswers = [];
+  }
+  if (questions[q].type == "drop-down") {
+    changeAns(document.getElementById("mySelect").value);
+  }
   if (questions[q].correctAnswers == 1) {
     if (questions[q].answers[0] == ans) {
-      alert("Correct answer");
+      correctAnswers++;
     } else {
-      alert("Wrong answer");
     }
+    userAnswers.push(ans);
+    ans=="";
   } else if (questions[q].correctAnswers == 2) {
     if (
       (questions[q].answers[0] == multipleAns[0] &&
@@ -126,19 +149,18 @@ function checkAnswer(q) {
       (questions[q].answers[0] == multipleAns[1] &&
         questions[q].answers[1] == multipleAns[0])
     ) {
-      alert("Correct answer");
+      correctAnswers++;
     } else {
-      alert("Wrong answer");
     }
+    userAnswers.push(multipleAns);
+    multipleAns=[];
   } else {
-    alert("Wrong answer");
   }
 
   document.getElementById("question").innerHTML += "";
+
   actualQ++;
   changeQuestion();
-  //alert(questions[q].answers[0]);
-  //alert(ans);
 }
 
 //------------ random array order-----------------------
