@@ -1,44 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="rankingScript.js"></script>
     <title>Ranking</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="center">
-        <h1>Ranking</h1>
-        <table>
-            <tr>
-              <th>Nickname</th>
-              <th>Score</th>
-            </tr>
-            <tr>
-              <td>Maria Anders</td>
-              <td>19</td>
-            </tr>
-            <tr>
-              <td>Francisco Chang</td>
-              <td>16</td>
-            </tr>
-            <tr>
-              <td>Ernst Handel</td>
-              <td>13</td>
-            </tr>
-            <tr>
-              <td>Island Trading</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Yoshi Tannamuri</td>
-              <td>9</td>
-            </tr>
-            <tr>
-              <td>Giovanni Rovelli</td>
-              <td>7</td>
-            </tr>
-          </table>
+      <div id="ranking">
+      </div>
+      <button type="button" onclick="retry()">Retry</button>
     </div>
-</body>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-function myFunction() {
+function getName() {
     sessionStorage.name = document.getElementById("NickName").value;
 
     if (sessionStorage.name != "") {

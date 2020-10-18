@@ -4,15 +4,10 @@ var actualQ = 0;
 var correctAnswers = 0;
 var userAnswers = [];
 var nick = sessionStorage.name;
+
 window.onload = function () {
   correctAnswers = 0;
   actualQ = 0;
-  if (typeof Storage !== "undefined") {
-    document.getElementById("demo").innerHTML = "Hola " + nick;
-  } else {
-    document.getElementById("demo").innerHTML =
-      "Sorry, your browser does not support web storage...";
-  }
   changeQuestion();
 };
 
@@ -31,7 +26,7 @@ function changeQuestion() {
       ranking = [
         {
           nick: nick,
-          correctAnswers: correctAnswers,
+          score: correctAnswers,
           answers: userAnswers
         },
       ];
@@ -39,7 +34,7 @@ function changeQuestion() {
       ranking = JSON.parse(sessionStorage.getItem("ranking"));
       ranking.push({
         nick: nick,
-        correctAnswers: correctAnswers,
+        score: correctAnswers,
         answers: userAnswers
       });
     }
