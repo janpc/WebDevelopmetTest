@@ -60,19 +60,19 @@ function changeQuestion() {
 
 //--------------print diferent tyes----------------------
 function radioQuestion(q) {
-  let print = "<h3>" + questions[q].question + "</h3><form>";
+  let print = "<h3 class='question'>" + questions[q].question + "</h3><form>";
   let randomAnswers = questions[q].answers.slice();
   randomAnswers = randomArray(randomAnswers);
   randomAnswers.forEach((answer) => {
     print +=
-      '<input type="radio" id="a" name="answer" onclick="changeAns(this.value)" value="' +
+      '<input type="radio" id="a" name="answer" class="radio" onclick="changeAns(this.value)" value="' +
       answer +
-      '"/><label>' +
+      '"/><label class="answer">' +
       answer +
       "</label><br />";
   });
   print +=
-    '<input type="button" onclick="checkAnswer(' +
+    '<input type="button" class="button" onclick="checkAnswer(' +
     q +
     ')" value="Next" /> </form>';
 
@@ -80,19 +80,19 @@ function radioQuestion(q) {
 }
 
 function checkboxQuestion(q) {
-  let print = "<h3>" + questions[q].question + "</h3><form>";
+  let print = "<h3 class='question'>" + questions[q].question + "</h3><form>";
   let randomAnswers = questions[q].answers.slice();
   randomAnswers = randomArray(randomAnswers);
   randomAnswers.forEach((answer) => {
     print +=
-      '<input type="checkbox" name="answer" onclick="changeMultipleAnswers(this.value)" value="' +
+      '<input type="checkbox" name="answer" class="checkbox" onclick="changeMultipleAnswers(this.value)" value="' +
       answer +
-      '"/>' +
+      '"/><label class="answer">' +
       answer +
-      "<br />";
+      "</label><br />";
   });
   print +=
-    '<input type="button" onclick="checkAnswer(' +
+    '<input type="button" class="button" onclick="checkAnswer(' +
     q +
     ')" value="Next" /> </form>';
 
@@ -101,7 +101,7 @@ function checkboxQuestion(q) {
 
 function dropDownQuestion(q) {
   let print =
-    "<h3>" + questions[q].question + "</h3><form><select id='mySelect'>";
+    "<h3 class='question'>" + questions[q].question + "</h3><form><select class='dropDown' id='mySelect'>";
   let randomAnswers = questions[q].answers.slice();
   randomAnswers = randomArray(randomAnswers);
 
@@ -109,9 +109,9 @@ function dropDownQuestion(q) {
     print += '<option value="' + answer + '">' + answer + "</option>";
   });
   print +=
-    '<input type="button" onclick="checkAnswer(' +
+    '</select> <br><input type="button" class="button" onclick="checkAnswer(' +
     q +
-    ')" value="Next" /> </select> </form>';
+    ')" value="Next" /> </form>';
 
   document.getElementById("question").innerHTML = print;
 }

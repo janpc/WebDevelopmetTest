@@ -1,69 +1,213 @@
-.center{
-    align-items: center;
-    text-align: center;
+.center {
+  align-items: center;
+  text-align: center;
 }
-.row{
-    display: flex; 
-    flex-direction: row; 
-    justify-content: center;
-}
-
-.roundContainer{
-    background-color: brown;
-    color:white;
-    position: relative;
-    border-radius: 25%;
-    width: 5%;
-    text-align: center;
-    
-}
-.roundContainerText{
-    margin-top: 30%;
-    margin-bottom: 30%;
-}
-.leftSpace{
-    margin-left: 25%;
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.backBar{
-    width:90%;
-    height: auto;
-    margin-left: 5%;
-    background-color: black;
-    padding: 0.5%;
-
-    margin-top:-3.5%;
+.roundContainer {
+  background-color: #898989;
+  color: white;
+  position: relative;
+  border-radius: 25%;
+  width: 3000px;
+  text-align: center;
+}
+.roundContainerText {
+  margin-top: 30%;
+  margin-bottom: 30%;
+}
+.leftSpace {
+  margin-left: 25%;
+}
+.barDiv {
+  width: 70%;
+  margin-left: 15%;
+  padding: 3% 0%;
+}
+.backBar {
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+  background-color: #333333;
+  border-color: black;
+  border-style: groove;
+  margin-top: -3.5%;
+  border-width: 1;
 }
 
-.mainBar{
-    width:75%;
-    height: auto;
-    margin-left: 1%;
-    margin-right: 1%;
-    background-color: green;
-    padding: 1%;
+.mainBar {
+  height: auto;
+  margin-left: 0%;
+  margin-right: 0%;
+  background-color: #e6621f;
+  padding: 1%;
+
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0, 1, 0.1, 0.2, 0.7, 1);  
+  min-height: 100%;
+  min-width: 0%;
+  width: 0%;
 
 }
 
+/*titles*/
+.mainTitle {
+  margin-bottom: 5%;
+  margin-top: 7%;
+  font-size: 400%;
+  color: white;
+}
+.score {
+    color: #ededed;
+    font-size: larger;
+}
+
+/*buttons*/
+
+.button {
+  background-color: #e6621f;
+  border-color: #333333;
+  font-size: xx-large;
+  border-radius: 20px;
+  margin: 5% 0%;
+  padding: 1% 5%;
+  color: #ededed;
+}
+.button:hover {
+  background-color: #c6420e;
+}
+
+.smallButtons{
+    background-color: #e6621f;
+  border:none;
+  font-size: large;
+  border-radius: 20px;
+  margin: 0% 5%;
+  padding: 0.1% 1%;
+  color: #ededed;
+}
+.smallButtons:hover {
+    background-color: #c6420e;
+  }
 
 
 
+/*forms*/
+
+.nickName {
+  color: #e6621f;
+  font-size: xx-large;
+  margin: 10%;
+}
+
+.inputNick {
+  color: #ededed;
+  font-size: 200%;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #898989;
+  border-color: #333333;
+  margin-bottom: 5%;
+  margin-top: 1%;
+  padding: 1% 5%;
+}
+.inputNick::placeholder {
+  color: #ededed;
+  opacity: 1; /* Firefox */
+}
+
+.inputNick:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ededed;
+}
+
+.inputNick::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ededed;
+}
 
 
 
 /*table*/
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left: 25%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  color:white;
+}
+
+tr:nth-child(even) {
+  background-color: #898989;
+  color:black;
+}
+
+
+
+
+/*main*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.homepage {
+  background-color: #333333;
+}
+
+.mainTest {
+  background-color: #333333;
+}
+
+.ranking {
+  background-color: #333333;
+}
+
+
+
+
+/*questions*/
+
+.question {
+  color: #ffffff;
+  font-size: xx-large;
+  margin: 1%;
+  margin-top: 5%;
+}
+.answer {
+  color: white;
+  font-size: x-large;
+  margin: 1%;
+}
+.radio {
+  margin: 1%;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+}
+
+.checkbox {
+  margin: 1%;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+}
+.dropDown {
+  background-color: #898989;
+  color: white;
+  font-size: x-large;
+  margin-top: 3.25%;
+  margin-bottom: 7.25%;
+}

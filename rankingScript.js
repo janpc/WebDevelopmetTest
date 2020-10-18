@@ -5,55 +5,24 @@ window.onload = function () {
   ranking = JSON.parse(sessionStorage.getItem("ranking"));
   rankingGreaterThan=ranking.slice().sort(greaterThan);
   rankingLessThan=ranking.slice().sort(lessThan);
-  showRanking();
+  showRanking(ranking);
 };
 
-function showRanking() {
-  let print = "<h1>Ranking</h1> <h3>Your Score: "+ranking[ranking.length-1].score+"</h3><table>";
+function showRanking(rank) {
+  let print = "<h1 class='mainTitle'>Ranking</h1> <h3 class='score' >Your Score: "+ranking[ranking.length-1].score+"</h3><table>";
   print += "<tr> <th>Nickname</th> <th>Score</th> </tr>";
-  for (i = ranking.length - 1; i >= 0; i--) {
+  for (i = rank.length - 1; i >= 0; i--) {
     print +=
       "<tr> <td>" +
-      ranking[i].nick +
+      rank[i].nick +
       "</td> <td>" +
-      ranking[i].score +
+      rank[i].score +
       "</td> </tr>";
   }
-  print += '</table><br><br><button type="button" onclick="showRankingGreaterThan()"> Highest Scores</button> <button type="button" onclick="showRankingLessThan()"> Lowest Scores</button><br><br>';
+  print += '</table><br><br><button type="button" class="smallButtons" onclick="showRanking(rankingGreaterThan)""> Highest Scores</button> <button type="button" class="smallButtons" onclick="showRanking(rankingLessThan)">Lowest Scores</button><button type="button" class="smallButtons" onclick="showRanking(ranking)"> Last Scores</button><br><br>';
 
   document.getElementById("ranking").innerHTML = print;
 }
-function showRankingLessThan() {
-    let print = "<h1>Ranking</h1> <h3>Your Score: "+ranking[ranking.length-1].score+"</h3><table>";
-    print += "<tr> <th>Nickname</th> <th>Score</th> </tr>";
-    for (i = rankingLessThan.length - 1; i >= 0; i--) {
-      print +=
-        "<tr> <td>" +
-        rankingLessThan[i].nick +
-        "</td> <td>" +
-        rankingLessThan[i].score +
-        "</td> </tr>";
-    }
-    print += '</table><br><br><button type="button" onclick="showRankingGreaterThan()"> Highest Scores</button> <button type="button" onclick="showRanking()"> Last Scores</button><br><br>';
-  
-    document.getElementById("ranking").innerHTML = print;
-  }
-
-  function showRankingGreaterThan() {
-    let print = "<h1>Ranking</h1> <h3>Your Score: "+ranking[ranking.length-1].score+"</h3><table>";
-    print += "<tr> <th>Nickname</th> <th>Score</th> </tr>";
-    for (i = rankingGreaterThan.length - 1; i >= 0; i--) {
-      print +=
-        "<tr> <td>" +
-        rankingGreaterThan[i].nick +
-        "</td> <td>" +
-        rankingGreaterThan[i].score +
-        "</td> </tr>";
-    }
-    print += '</table><br><br> <button type="button" onclick="showRanking()"> Last Scores</button> <button type="button" onclick="showRankingLessThan()"> Lowest Scores</button><br><br>';
-  
-    document.getElementById("ranking").innerHTML = print;
-  }
 
 function lessThan(a, b) {
   return b.score - a.score;
