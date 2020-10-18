@@ -19,7 +19,7 @@ function showRanking(rank) {
       rank[i].score +
       "</td> </tr>";
   }
-  print += '</table><br><br><button type="button" class="smallButtons" onclick="showRanking(rankingGreaterThan)""> Highest Scores</button> <button type="button" class="smallButtons" onclick="showRanking(rankingLessThan)">Lowest Scores</button><button type="button" class="smallButtons" onclick="showRanking(ranking)"> Last Scores</button><br><br>';
+  print += '</table><br><br><div class="center"><button type="button" class="smallButtons" onclick="showRanking(rankingGreaterThan)""> Highest Scores</button> <button type="button" class="smallButtons" onclick="showRanking(rankingLessThan)">Lowest Scores</button><button type="button" class="smallButtons" onclick="showRanking(ranking)"> Last Scores</button></div><br><br>';
 
   document.getElementById("ranking").innerHTML = print;
 }

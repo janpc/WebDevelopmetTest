@@ -23,24 +23,27 @@
 .leftSpace {
   margin-left: 25%;
 }
+
+/*progress bar*/
+
 .barDiv {
   width: 70%;
   margin-left: 15%;
-  padding: 3% 0%;
+  padding: 60px 0%;
 }
 .backBar {
   width: 90%;
-  height: auto;
+
   margin-left: 5%;
   background-color: #333333;
   border-color: black;
   border-style: groove;
-  margin-top: -3.5%;
+  margin-top: -50px;
   border-width: 1;
 }
 
 .mainBar {
-  height: auto;
+  height: 10px;
   margin-left: 0%;
   margin-right: 0%;
   background-color: #e6621f;
@@ -56,8 +59,8 @@
 
 /*titles*/
 .mainTitle {
-  margin-bottom: 5%;
-  margin-top: 7%;
+  margin-bottom: 100px;
+  margin-top: 140px;
   font-size: 400%;
   color: white;
 }
@@ -73,7 +76,7 @@
   border-color: #333333;
   font-size: xx-large;
   border-radius: 20px;
-  margin: 5% 0%;
+  margin: 100px 0%;
   padding: 1% 5%;
   color: #ededed;
 }
@@ -99,7 +102,7 @@
 .nickName {
   color: #e6621f;
   font-size: xx-large;
-  margin: 10%;
+  margin: 100px;
 }
 
 .inputNick {
@@ -109,7 +112,7 @@
   border-radius: 20px;
   background-color: #898989;
   border-color: #333333;
-  margin-bottom: 5%;
+  margin-bottom: 100px;
   margin-top: 1%;
   padding: 1% 5%;
 }
@@ -172,8 +175,8 @@ body {
 .question {
   color: #ffffff;
   font-size: xx-large;
-  margin: 1%;
-  margin-top: 5%;
+  margin: 20px;
+  margin-top: 100px;
 }
 .answer {
   color: white;
@@ -181,14 +184,14 @@ body {
   margin: 1%;
 }
 .radio {
-  margin: 1%;
+  margin: 20px;
   height: 20px;
   width: 20px;
   border-radius: 5px;
 }
 
 .checkbox {
-  margin: 1%;
+  margin: 20px;
   height: 20px;
   width: 20px;
   border-radius: 5px;
@@ -221,3 +224,30 @@ body {
     opacity:100%;
   }
 }
+
+
+
+/*responsive*/
+@media (max-width: 800px) {
+    .smallButtons {
+        margin: 2% 5%;
+        padding: 0.4% 2%;
+      }
+
+  }
+  @media (max-width: 1400px) {
+    .backBar {
+        margin-top: -40px;
+
+      }
+
+  }
+
+  @media (max-width: 1100px) {
+    .backBar {
+        margin-top: -35px;
+
+      }
+
+  }
+
