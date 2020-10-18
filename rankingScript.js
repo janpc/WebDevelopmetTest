@@ -5,7 +5,6 @@ window.onload = function () {
   ranking = JSON.parse(sessionStorage.getItem("ranking"));
   rankingGreaterThan=ranking.slice().sort(greaterThan);
   rankingLessThan=ranking.slice().sort(lessThan);
-  alert(rankingLessThan[0]);
   showRanking();
 };
 

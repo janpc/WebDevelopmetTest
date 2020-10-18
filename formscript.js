@@ -4,6 +4,7 @@ var actualQ = 0;
 var correctAnswers = 0;
 var userAnswers = [];
 var nick = sessionStorage.name;
+var barWidth=0;
 
 window.onload = function () {
   correctAnswers = 0;
@@ -12,6 +13,19 @@ window.onload = function () {
 };
 
 function changeQuestion() {
+  if(actualQ==0){
+    barWidth=0;
+  }
+  else if(actualQ<10){
+    barWidth+=(34/9)
+  }
+  else if(actualQ<15){
+    barWidth+=(33/5)
+  }else{
+    barWidth+=(33/6)
+  }
+  document.getElementById("mainBar").style.width = barWidth+"%";
+  actualQ++;
   if (actualQ < 20) {
     if (questions[actualQ].type == "radio") {
       radioQuestion(actualQ);
@@ -20,6 +34,7 @@ function changeQuestion() {
     } else {
       dropDownQuestion(actualQ);
     }
+
   } else {
     let ranking = [];
     if (!sessionStorage.ranking) {
@@ -154,7 +169,7 @@ function checkAnswer(q) {
 
   document.getElementById("question").innerHTML += "";
 
-  actualQ++;
+
   changeQuestion();
 }
 

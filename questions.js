@@ -85,10 +85,10 @@ let questions =[
         "answers":['a {text-decoration:none;}', 'a {decoration:no-underline;}', 'a {text-decoration:no-underline;}', 'a {underline:none;}']
     },
     {
-        "question": "What is the correct JavaScript syntax to change the content of the HTML element below?",
+        "question": "What is the correct JavaScript syntax to change the content of the HTML element with name='demo' id='demo' class='blue'?",
         "type":"radio",
         "correctAnswers": 1,
-        "answers":["document.getElementById('demo').innerHTML = 'Hello World!'", "document.getElementByName('p').innerHTML = 'Hello World!'", "document.getElement('p').innerHTML = 'Hello World!'; ", "#demo.innerHTML = 'Hello World!';"]
+        "answers":["document.getElementById('demo').innerHTML = 'Hello World!'", "document.getElementByName('blue').innerHTML = 'Hello World!'", "document.getElement('p').innerHTML = 'Hello World!'; ", "#demo.innerHTML = 'Hello World!';"]
     },
     {
         "question": "The external JavaScript file must contain the &ltscript&gt tag:",
