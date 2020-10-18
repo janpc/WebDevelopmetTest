@@ -4,7 +4,7 @@ var actualQ = 0;
 var correctAnswers = 0;
 var userAnswers = [];
 var nick = sessionStorage.name;
-var barWidth=0;
+var barWidth = 0;
 
 window.onload = function () {
   correctAnswers = 0;
@@ -13,28 +13,29 @@ window.onload = function () {
 };
 
 function changeQuestion() {
-  if(actualQ==0){
-    barWidth=0;
+  if (actualQ == 0) {
+    barWidth = 0;
+  } else if (actualQ < 10) {
+    barWidth += 34 / 9;
+  } else if (actualQ < 15) {
+    barWidth += 33 / 5;
+  } else {
+    barWidth += 33 / 6;
   }
-  else if(actualQ<10){
-    barWidth+=(34/9)
-  }
-  else if(actualQ<15){
-    barWidth+=(33/5)
-  }else{
-    barWidth+=(33/6)
-  }
-  document.getElementById("mainBar").style.width = barWidth+"%";
+  animation();
+  document.getElementById("mainBar").style.width = barWidth + "%";
   actualQ++;
-  if (actualQ < 20) {
-    if (questions[actualQ].type == "radio") {
-      radioQuestion(actualQ);
-    } else if (questions[actualQ].type == "checkbox") {
-      checkboxQuestion(actualQ);
-    } else {
-      dropDownQuestion(actualQ);
-    }
 
+  if (actualQ < 20) {
+    setTimeout(function () {
+      if (questions[actualQ].type == "radio") {
+        radioQuestion(actualQ);
+      } else if (questions[actualQ].type == "checkbox") {
+        checkboxQuestion(actualQ);
+      } else {
+        dropDownQuestion(actualQ);
+      }
+    }, 501);
   } else {
     let ranking = [];
     if (!sessionStorage.ranking) {
@@ -42,7 +43,7 @@ function changeQuestion() {
         {
           nick: nick,
           score: correctAnswers,
-          answers: userAnswers
+          answers: userAnswers,
         },
       ];
     } else {
@@ -50,7 +51,7 @@ function changeQuestion() {
       ranking.push({
         nick: nick,
         score: correctAnswers,
-        answers: userAnswers
+        answers: userAnswers,
       });
     }
     window.sessionStorage.setItem("ranking", JSON.stringify(ranking));
@@ -101,7 +102,9 @@ function checkboxQuestion(q) {
 
 function dropDownQuestion(q) {
   let print =
-    "<h3 class='question'>" + questions[q].question + "</h3><form><select class='dropDown' id='mySelect'>";
+    "<h3 class='question'>" +
+    questions[q].question +
+    "</h3><form><select class='dropDown' id='mySelect'>";
   let randomAnswers = questions[q].answers.slice();
   randomAnswers = randomArray(randomAnswers);
 
@@ -151,7 +154,7 @@ function checkAnswer(q) {
     } else {
     }
     userAnswers.push(ans);
-    ans=="";
+    ans == "";
   } else if (questions[q].correctAnswers == 2) {
     if (
       (questions[q].answers[0] == multipleAns[0] &&
@@ -163,12 +166,11 @@ function checkAnswer(q) {
     } else {
     }
     userAnswers.push(multipleAns);
-    multipleAns=[];
+    multipleAns = [];
   } else {
   }
 
   document.getElementById("question").innerHTML += "";
-
 
   changeQuestion();
 }
@@ -182,4 +184,12 @@ function randomArray(array) {
     array[j] = temp;
   }
   return array;
+}
+
+//-------animation------------
+function animation() {
+  document.getElementById("question").className = "";
+  setTimeout(function () {
+    document.getElementById("question").className = "hideAndShow";
+  }, 1);
 }
